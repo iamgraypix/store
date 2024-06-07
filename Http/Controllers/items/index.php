@@ -1,8 +1,12 @@
 <?php 
 
-$db = new PDO("mysql:host=localhost;dbname=store;port=3306", 'root', '');
+use Core\Database;
 
-$items = $db->query("SELECT * FROM items")->fetchAll(PDO::FETCH_ASSOC);
+$config = require base_path('config.php');
+
+$db = new Database($config['database']);
+
+$items = $db->query("SELECT * FROM items")->get();
 
 
 view('items/index.view.php', [

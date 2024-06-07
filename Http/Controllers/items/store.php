@@ -1,5 +1,6 @@
 <?php
 
+use Core\Database;
 use Core\Session;
 use Core\Validation;
 
@@ -11,7 +12,7 @@ $retail_price = $_POST['retail-price'];
 $errors = [];
 
 // Fields is not empty
-if (! Validation::required($name)) {
+if (!Validation::required($name)) {
     $errors['name'] = 'Name is required';
 }
 
@@ -50,14 +51,15 @@ if (count($errors)) {
 
 
 // Save
-$db = new PDO("mysql:host=localhost;dbname=store;port=3306", 'root', '');
+$config = require base_path('config.php');
 
-$statement = $db->prepare("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :retail)");
-$statement->execute([
-    'name' => $name,
-    'listing' => $listing_price,
-    'retail' => $retail_price
+$db = new Database($config['database']);
+$db->query("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :retail)", [
+        'name' => $name,
+        'listing' => $listing_price,
+        'retail' => $retail_price
 ]);
+
 
 // Redirect
 redirect('/items');
