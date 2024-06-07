@@ -1,5 +1,6 @@
 <?php
 
+use Core\ExceptionValidation;
 use Core\Router;
 use Core\Session;
 
@@ -18,7 +19,15 @@ $uri = request_url();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
-$router->route($uri, $method);
+try {
+    $router->route($uri, $method);
+} catch (ExceptionValidation $exception)
+{
+    Session::flash('errors', $exception->errors);
+    Session::flash('old', $exception->fields);
+    $router->previousUrl();
+}
+
 
 
 Session::unflash();

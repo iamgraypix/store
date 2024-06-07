@@ -3,61 +3,27 @@
 use Core\Database;
 use Core\Session;
 use Core\Validation;
+use Http\Forms\RegisterItemForm;
 
 $name = $_POST['name'];
 $listing_price = $_POST['listing-price'];
 $retail_price = $_POST['retail-price'];
 
 // Validation
-$errors = [];
-
-// Fields is not empty
-if (!Validation::required($name)) {
-    $errors['name'] = 'Name is required';
-}
-
-if (!Validation::required($listing_price)) {
-    $errors['listing-price'] = 'Listing price is required';
-}
-
-if (!Validation::required($retail_price)) {
-    $errors['retail-price'] = 'Retail price is required';
-}
-
-// prices is a number
-if (!is_numeric($retail_price)) {
-    $errors['retail-price'] = 'Retail price must be a number';
-}
-
-if (!is_numeric($listing_price)) {
-    $errors['listing-price'] = 'Listing price must be a number';
-}
-
-// retail price is not less than or equal to listing
-if ($retail_price <= $listing_price) {
-    $errors['retail-price'] = 'Retail price must be greater than listing price';
-}
-
-if (count($errors)) {
-    Session::flash('errors', $errors);
-    Session::flash('old', [
-        'name' => $name,
-        'retail-price' => $retail_price,
-        'listing-price' => $listing_price
-    ]);
-
-    redirect('/items/create');
-}
+$form = RegisterItemForm::validation([
+    'name' => $name,
+    'listing-price' => $listing_price,
+    'retail-price' => $retail_price
+]); 
 
 
-// Save
 $config = require base_path('config.php');
 
 $db = new Database($config['database']);
 $db->query("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :retail)", [
-        'name' => $name,
-        'listing' => $listing_price,
-        'retail' => $retail_price
+    'name' => $name,
+    'listing' => $listing_price,
+    'retail' => $retail_price
 ]);
 
 

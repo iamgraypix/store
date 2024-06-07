@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace Core;
 
-class Router {
+class Router
+{
 
     protected $routes = [];
 
@@ -27,19 +28,29 @@ class Router {
 
     public function route($url, $method)
     {
-        foreach ($this->routes as $route)
-        {
+        foreach ($this->routes as $route) {
             if ($url === $route['url'] && $route['method'] === strtoupper($method)) {
                 return require base_path('Http/Controllers/' . $route['controller']);
             }
         }
         $this->abort();
     }
-    
+
+    public function previousUrl()
+    {
+        $this->redirect($_SERVER['HTTP_REFERER']);
+    }
+
+    public function redirect($path)
+    {
+        header("location: {$path}");
+        die();
+    }
+
+
     public function abort($code = 404)
     {
         http_response_code($code);
         die();
     }
-
 }
