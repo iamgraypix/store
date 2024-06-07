@@ -36,12 +36,12 @@ function isUrl($url)
     return $url === request_url();
 }
 
-function old($field)
+function old($field, $default = null)
 {
-    return Session::get('old')[$field];
+    return Session::get('old')[$field] ?? $default;
 }
 
-function errors($field)
+function errors($field, $default = null)
 {
-    return Session::get('errors')[$field];
+    return Session::get('errors')[$field] ?? $default;
 }

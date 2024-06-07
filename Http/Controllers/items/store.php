@@ -11,15 +11,15 @@ $retail_price = $_POST['retail-price'];
 $errors = [];
 
 // Fields is not empty
-if (strlen($name) === 0) {
+if (! Validation::required($name)) {
     $errors['name'] = 'Name is required';
 }
 
-if (strlen($listing_price) === 0) {
+if (!Validation::required($listing_price)) {
     $errors['listing-price'] = 'Listing price is required';
 }
 
-if (strlen($retail_price) === 0) {
+if (!Validation::required($retail_price)) {
     $errors['retail-price'] = 'Retail price is required';
 }
 
@@ -44,7 +44,6 @@ if (count($errors)) {
         'retail-price' => $retail_price,
         'listing-price' => $listing_price
     ]);
-
 
     redirect('/items/create');
 }
