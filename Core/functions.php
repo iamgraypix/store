@@ -1,5 +1,7 @@
 <?php
 
+use Core\Session;
+
 function dd($value)
 {
     echo "<pre>";
@@ -20,10 +22,26 @@ function view($path)
 
 function request_url()
 {
-    return parse_url($_SERVER['REQUEST_URI'])["path"];   
+    return parse_url($_SERVER['REQUEST_URI'])["path"];
+}
+
+function redirect($path)
+{
+    header("location: {$path}");
+    die();
 }
 
 function isUrl($url)
 {
     return $url === request_url();
+}
+
+function old($field)
+{
+    return Session::get('old')[$field];
+}
+
+function errors($field)
+{
+    return Session::get('errors')[$field];
 }

@@ -1,4 +1,4 @@
-<span style="display: none;" id="liveToastBtn"></span>
+<!-- <span style="display: none;" id="liveToastBtn"></span>
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
     <div id="liveToast" class="toast bg-success" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="toast-header">
@@ -10,11 +10,11 @@
             Login Successfully. Welcome to Admin Dashboard.
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- end of content -->
-<script src="js/bootstrap.bundle.js"></script>
-<script src="js/script.js"></script>
+<script src="/js/bootstrap.bundle.js"></script>
+<script src="/js/script.js"></script>
 
 </body>
 

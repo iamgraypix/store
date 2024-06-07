@@ -20,11 +20,16 @@ class Router {
         $this->add($url, $controller, 'GET');
     }
 
+    public function post($url, $controller)
+    {
+        $this->add($url, $controller, 'POST');
+    }
+
     public function route($url, $method)
     {
         foreach ($this->routes as $route)
         {
-            if ($url === $route['url'] && $route['method'] === $method) {
+            if ($url === $route['url'] && $route['method'] === strtoupper($method)) {
                 return require base_path('Http/Controllers/' . $route['controller']);
             }
         }

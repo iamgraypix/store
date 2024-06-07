@@ -20,38 +20,47 @@ retailPrice.addEventListener('input', function(e){
 })
 
 
-// $(document).ready(function(){
+$(document).ready(function(){
 
-//     $("#btn-add-item").click(function() {
+    $("#btn-add-item").click(function() {
 
-//         var lp = $("#listing-price").val();
-//         var item = $("#item-name").val();
-//         var rp = $("#retail-price").val();
+        var lp = $("#listing-price").val();
+        var item = $("#item-name").val();
+        var rp = $("#retail-price").val();
 
-//         var rev = $("#revenue").val();
-//         var revP = $("#revenue-percent").val();
-//         var qty = 0;
+        var rev = $("#revenue").val();
+        var revP = $("#revenue-percent").val();
+        var qty = 0;
 
-//         if($.trim(lp) != "" && $.trim(item) != "" && $.trim(rp) != ""){
-//             $.post("actions/supply/regis.php", {
-//                 item_name: item,
-//                 listing_price: lp,
-//                 retail_price: rp,
-//                 revenue: rev,
-//                 revenue_perc: revP,
-//                 qty: qty 
-//             }, function(data, status){
-//                 $("#listing-price").val("");
-//                 $("#item-name").val("");
-//                 $("#retail-price").val("");
-//                 $("#revenue").val("");
-//                 $("#revenue-percent").val("");
-//                 $("#test").html(data);
-//                 $("#regis-table").load("actions/supply/regis-table.php");
-//             });
-//         }
+        if($.trim(lp) != "" && $.trim(item) != "" && $.trim(rp) != ""){
+            $.post("/items", {
+                item_name: item,
+                listing_price: lp,
+                retail_price: rp,
+                revenue: rev,
+                revenue_perc: revP,
+                qty: qty 
+            }, function(data, status){
+                console.log(JSON.stringify(data));
+                alert('noice')
+                // console.log(status);
+                // console.log(data);
+                // console.log(status);
+                // $("#listing-price").val("");
+                // $("#item-name").val("");
+                // $("#retail-price").val("");
+                // $("#revenue").val("");
+                // $("#revenue-percent").val("");
+                // $("#test").html(data);
+                // $("#regis-table").load("actions/supply/regis-table.php");
+            })
+            .fail(function(data) {
+                console.log(JSON.stringify(data));
+                alert('fail');
+            });
+        }
 
 
-//     })
+    })
 
-// });
+});

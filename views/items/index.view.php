@@ -20,12 +20,12 @@
                 </div>
 
                 <div class="col-6 col-md-3">
-                    <button type="button" class="w-100 btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#add-item-modal">
+                    <a href="items/create" class="w-100 btn btn-outline-dark">
                         <span>
                             <i class="bi bi-plus-square-fill fs-5 me-2"></i>
                             Add Item
                         </span>
-                    </button>
+                    </a>
                 </div>
 
             </div>
@@ -39,7 +39,7 @@
                             <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form class="needs-validation" novalidate>
+                        <form class="needs-validation" novalidate method="POST">
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-12 mb-2">
@@ -61,7 +61,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row mt-3">
                                     <div class="col">
                                         <h5>
@@ -73,7 +72,7 @@
                                     <div class="col">
                                         <h5>
                                             Revenue Per:
-                                            <input type="text" class="form-control" id="revenue-percent" disabled>
+                                            <input type="text" class="form-control" id="revenue-percent" name="revenue-percent" value="0" disabled>
                                         </h5>
 
                                     </div>
