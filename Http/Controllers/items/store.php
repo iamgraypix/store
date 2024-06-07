@@ -49,7 +49,15 @@ if (count($errors)) {
 }
 
 
-
 // Save
+$db = new PDO("mysql:host=localhost;dbname=store;port=3306", 'root', '');
+
+$statement = $db->prepare("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :retail)");
+$statement->execute([
+    'name' => $name,
+    'listing' => $listing_price,
+    'retail' => $retail_price
+]);
 
 // Redirect
+redirect('/items');

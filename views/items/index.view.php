@@ -31,70 +31,6 @@
             </div>
 
 
-            <!-- Add Item Modal -->
-            <div class="modal fade" id="add-item-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered ">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Item</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <form class="needs-validation" novalidate method="POST">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-12 mb-2">
-                                        <label for="item-name" class="form-label">Item Name</label>
-                                        <input type="text" class="form-control" name="item-name" id="item-name" autocomplete="off" required>
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="listing-price" class="form-label">Listing Price</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">₱</span>
-                                            <input autocomplete="off" type="number" class="form-control" name="listing-price" id="listing-price" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="retail-price" class="form-label">Retail Price</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">₱</span>
-                                            <input autocomplete="off" type="number" class="form-control" name="retail-price" id="retail-price" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col">
-                                        <h5>
-                                            Revenue: Php
-                                            <input type="text" class="form-control" id="revenue" disabled>
-                                        </h5>
-
-                                    </div>
-                                    <div class="col">
-                                        <h5>
-                                            Revenue Per:
-                                            <input type="text" class="form-control" id="revenue-percent" name="revenue-percent" value="0" disabled>
-                                        </h5>
-
-                                    </div>
-                                </div>
-
-                                <div id="test">
-                                </div>
-
-                            </div>
-
-
-                            <div class="modal-footer">
-                                <button id="btn-close" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <button id="btn-add-item" type="button" class="btn btn-primary">Add product</button>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="table-responsive mt-3" id="regis-table">
                 <table class="table-striped table table-hover table-bordered">
                     <thead>
@@ -108,19 +44,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($items as $item) :  ?>
+                            <tr>
+                                <td><?= $item['name']  ?></td>
+                                <td><?= $item['listing']  ?></td>
+                                <td><?= $item['retail']  ?></td>
+                                <td class="table-info"></td>
+                                <td class="table-warning"></td>
+                                <td class="table-danger"></td>
+                            </tr>
 
-                        <tr>
-                            <td>Itlog</td>
-                            <td>Php 10.00</td>
-                            <td>Php 12.00</td>
-                            <td class="table-info">Php 2.00</td>
-                            <td class="table-warning">20 %</td>
-                            <td class="table-danger">Noice</td>
-                        </tr>
-
-
-                        <!-- </tr> -->
-                        <!-- lagyan ng kulay ang Revenue at Revenue Percentage -->
+                        <?php endforeach  ?>
                     </tbody>
                 </table>
             </div>

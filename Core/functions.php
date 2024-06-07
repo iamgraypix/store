@@ -15,8 +15,9 @@ function base_path($path)
     return BASE_PATH . $path;
 }
 
-function view($path)
+function view($path, $data = [])
 {
+    extract($data);
     return require base_path("views/{$path}");
 }
 
