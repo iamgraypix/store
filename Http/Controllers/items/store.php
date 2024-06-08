@@ -24,6 +24,8 @@ $db->query("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :
     'retail' => $retail_price
 ]);
 
+$db->query("INSERT INTO stocks (item_id) VALUES (:id)", ['id' => $db->lastId()]);
+
 
 // Redirect
 redirect('/items');
