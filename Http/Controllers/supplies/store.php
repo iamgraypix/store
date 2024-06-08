@@ -16,15 +16,21 @@ $form = SupplyForm::validation([
 
 $item = $db->query("SELECT * FROM items WHERE id = :id", ['id' => $item_id])->find();
 
-if(!$item){
+if (!$item) {
     $form->error('item', 'Item does not exists')->throw();
 }
 
-$db->query("INSERT INTO supplies (item_id, qty) VALUES (:item, :qty)", [
+$total_retail = $item['retail'] * $qty;
+$total_listing = $item['listing'] * $qty;
+
+$db->query("INSERT INTO supplies (item_id, qty,retail,listing, total_retail, total_listing) 
+VALUES (:item, :qty, :retail, :listing, :total_retail, :total_listing)", [
     'item' => $item_id,
-    'qty' => $qty
+    'qty' => $qty,
+    'retail' => $item['retail'],
+    'listing' => $item['listing'],
+    'total_retail' => $total_retail,
+    'total_listing' => $total_listing
 ]);
 
 redirect('/supplies');
-
-

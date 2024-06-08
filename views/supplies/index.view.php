@@ -6,7 +6,7 @@
 <main class="mt-5 pt-3">
     <div class="m-4 p-4 shadow rounded-3" style="background-color: white;" id="content">
 
-        <h1 class="display-5 text-center">Products</h1>
+        <h2 class=" text-center">Supplies Record</h2>
         <div class="row mt-4 justify-content-around">
             <div class="col-12 col-md-4">
                 <div class="input-group mb-2">
@@ -39,12 +39,20 @@
                         <th class="table-success" scope="col">Total Retail Price</th>
                         <th class="table-warning" scope="col">Listing Price</th>
                         <th class="table-danger" scope="col">Total Listing Price</th>
-                        <!-- <th scope="col">Remarks</th> -->
-
                     </tr>
                 </thead>
                 <tbody>
-
+                    <?php foreach ($supplies as $supply) :  ?>
+                        <tr>
+                            <td><?= $supply['created_at'] ?? '--' ?></td>
+                            <td><?= $supply['name'] ?></td>
+                            <td><?= $supply['qty'] ?></td>
+                            <td><?= $supply['retail'] ?></td>
+                            <td><?= $supply['total_retail'] ?></td>
+                            <td><?= $supply['listing'] ?></td>
+                            <td><?= $supply['total_listing'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
 
             </table>
