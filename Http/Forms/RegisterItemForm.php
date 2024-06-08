@@ -2,16 +2,14 @@
 
 namespace Http\Forms;
 
-use Core\ExceptionValidation;
-use Core\Session;
+
+use Core\Form;
 use Core\Validation;
-use Exception;
 
-class RegisterItemForm
+
+class RegisterItemForm extends Form
 {
-    protected $errors = [];
-
-    public function __construct(public array $fields)
+    public function __construct($fields)
     {
         if (!Validation::required($fields['name'])) {
             $this->error('name', 'Name is required');
@@ -38,33 +36,6 @@ class RegisterItemForm
         if ($fields['retail-price'] <= $fields['listing-price']) {
             $this->error('retail-price', 'Retail price must be greater than listing price');
         }
-    }
-
-    public static function validation($fields)
-    {
-        $instance = new static($fields);
-
-        return $instance->failed() ? $instance->throw() : $instance;
-    }
-
-    public function throw()
-    {
-        ExceptionValidation::throw($this->errors(), $this->fields);
-    }
-
-    public function errors()
-    {
-        return $this->errors;
-    }
-
-    public function error($key, $message)
-    {
-        $this->errors[$key] = $message;
-    }
-
-    public function failed()
-    {
-        return count($this->errors);
     }
 
     
