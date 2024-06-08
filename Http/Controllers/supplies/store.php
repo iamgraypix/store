@@ -33,6 +33,8 @@ VALUES (:item, :qty, :retail, :listing, :total_retail, :total_listing)", [
     'total_listing' => $total_listing
 ]);
 
-$db->query("UPDATE stocks SET stock = stock + :qty WHERE item_id = :id", ['id' => $item_id, 'qty' => $qty]);
+$db->query("UPDATE stocks SET receive = receive + :qty, 
+available = available + :qty
+WHERE item_id = :id", ['id' => $item_id, 'qty' => $qty]);
 
 redirect('/supplies');
