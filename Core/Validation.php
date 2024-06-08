@@ -6,7 +6,7 @@ class Validation {
     
     public static function required($value)
     {
-        return strlen($value) !== 0;
+        return strlen(trim($value)) !== 0;
     }
 
 }

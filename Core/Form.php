@@ -30,6 +30,7 @@ class Form
     public function error($key, $message)
     {
         $this->errors[$key] = $message;
+        return $this;
     }
 
     public function failed()

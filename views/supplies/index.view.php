@@ -18,7 +18,7 @@
             </div>
 
             <div class="col-6 col-md-3">
-                <a href="/products/create" type="button" class="w-100 btn btn-outline-dark">
+                <a href="/supplies/create" type="button" class="w-100 btn btn-outline-dark">
                     <span>
                         <i class="bi bi-plus-square-fill fs-5 me-2"></i>
                         Add Product

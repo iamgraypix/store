@@ -33,7 +33,7 @@ class Router
                 return require base_path('Http/Controllers/' . $route['controller']);
             }
         }
-        $this->abort();
+        $this->notfound();
     }
 
     public function previousUrl()
@@ -48,9 +48,10 @@ class Router
     }
 
 
-    public function abort($code = 404)
+    public function notfound($code = Response::NOT_FOUND)
     {
         http_response_code($code);
+        view("errors/notFound.view.php");
         die();
     }
 }

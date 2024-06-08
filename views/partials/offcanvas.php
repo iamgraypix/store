@@ -25,11 +25,11 @@
                     </div>
                 </li>
                 <li>
-                    <a href="/products" id="sales" class="nav-link px-3 <?= isUrl('/products') ? 'active' : ''  ?>">
+                    <a href="/supplies" class="nav-link px-3 <?= isUrl('/supplies') ? 'active' : ''  ?>">
                         <span class="me-2">
                             <i class="bi bi-file-text fs-5"></i>
                         </span>
-                        <span>Products</span>
+                        <span>Supplies</span>
                     </a>
                 </li>
                 <li>
