@@ -56,20 +56,14 @@
                             <div class="row">
                                 <div class="col-md-6 items-wrap overflow-auto">
 
-                                    <?php
-
-
-
-                                    foreach ($allProducts as $product) :
-
-                                    ?>
+                                    <?php foreach ($stocks as $product) : ?>
 
                                         <div class="row p-2 align-items-center">
                                             <button id="product-item-<?php echo $product['id']; ?>" onclick="order('<?php echo $product['id']; ?>')" class="no-border col position-relative items rounded d-flex justify-content-between align-items-center mt-3 p-2">
 
                                                 <h3 id="prd-name-<?php echo $product['id']; ?>"><?php echo $product['name']; ?></h3>
                                                 <span style="color: #DC3545;">
-                                                    <p id="prd-price-<?php echo $product['id']; ?>" class="lead"><?php echo "₱ " . $product['rp']; ?></p>
+                                                    <p id="prd-price-<?php echo $product['id']; ?>" class="lead"><?php echo "₱ " . $product['retail']; ?></p>
                                                 </span>
                                                 <span id="badge-<?php echo $product['id']; ?>" style="display: none;" class="position-absolute top-0 start-99 translate-middle badge rounded-pill bg-danger">
                                                     1
@@ -85,9 +79,7 @@
                                             </div>
                                         </div>
 
-                                    <?php
-                                    endforeach;
-                                    ?>
+                                    <?php endforeach; ?>
 
                                 </div>
                                 <div class="col-md-6 ">
@@ -177,7 +169,7 @@
                 </div>
             </div>
 
-            <div class="table-responsive mt-4">
+            <!-- <div class="table-responsive mt-4">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
@@ -190,35 +182,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($allOrder as $product) : ?>
-                            <tr>
-                                <td><?php echo $product['name'] ?></td>
-                                <td><?php echo $product['qty'] ?></td>
-                                <td class="table-info"><?php echo $product['price'] ?></td>
-                                <td class="table-success"><?php echo $product['amount'] ?></td>
-                                <td class="table-warning">
-
-                                    <?php
-                                    //check the if the date is today
-                                    if ($product['date'] == date("Y-m-d")) {
-                                    ?>
-                                        <b style="color: green">Today</b>
-                                    <?php
-                                    } else {
-                                        echo $product['date'];
-                                    }
-                                    ?>
-                                </td>
-                                <td class="table-danger"><?php echo $product['customer_id'] ?></td>
-
-
-                            </tr>
-                        <?php endforeach; ?>
+                       
                     </tbody>
                 </table>
 
-            </div>
+            </div> -->
         </div>
 </main>
-
+<script src="js/order.js"></script>
 <?php require base_path('views/partials/footer.php')  ?>
