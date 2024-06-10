@@ -190,7 +190,7 @@
                                 <td><?= $order['amount'] ?></td>
                                 <td>---</td>
                                 <td>
-                                    <a href="/orders/show">
+                                    <a href="/orders/show?id=<?=$order['id']?>">
                                         View Details
                                     </a>
                                 </td>

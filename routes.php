@@ -10,6 +10,8 @@ $router->get('/sales', 'sales/index.php');
 $router->get('/items/create', 'items/create.php');
 $router->get('/supplies/create', 'supplies/create.php');
 
+$router->get('/orders/show', 'orders/show.php');
+
 $router->post('/items/store', 'items/store.php');
 $router->post('/supplies/store', 'supplies/store.php');
 $router->post('/orders/store', 'orders/store.php');
