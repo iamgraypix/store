@@ -135,7 +135,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input id="totalPayment" type="text" value="₱ 0.00" class="form-control" disabled>
+                                    <input id="totalPayment" type="text" value="0.00" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="row">

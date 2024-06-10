@@ -12,3 +12,4 @@ $router->get('/supplies/create', 'supplies/create.php');
 
 $router->post('/items/store', 'items/store.php');
 $router->post('/supplies/store', 'supplies/store.php');
+$router->post('/orders/store', 'orders/store.php');
