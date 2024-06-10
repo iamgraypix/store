@@ -205,8 +205,7 @@ $(document).ready(function () {
           $("#totalPayment").val("");
           $("#change").val("");
           $("#order-list").load("actions/order/order_list.php");
-        },
-        "json"
+        }
       ).fail(function () {
         alert("fail");
       });

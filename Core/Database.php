@@ -20,7 +20,7 @@ class Database
 
     public function lastId()
     {
-        return $this->connection->lastInsertId();
+        return $this->connection->lastInsertId()    ;
     }
 
     public function query($query, $params = [])
