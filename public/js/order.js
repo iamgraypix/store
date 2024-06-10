@@ -194,7 +194,9 @@ $(document).ready(function () {
           date: date,
         },
         function (data) {
-          console.log(data);
+          // Reload the page
+          location.reload();
+
           // $("#rs").html(
           //     "<div class=\"mt-3 alert alert-success\">"
           //     +"<span><i class=\"bi bi-check-circle fs-4 me-1\"></i><span>"

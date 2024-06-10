@@ -169,24 +169,37 @@
                 </div>
             </div>
 
-            <!-- <div class="table-responsive mt-4">
+            <div class="table-responsive mt-4">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Product Name</th>
-                            <th scope="col">Qty</th>
-                            <th class="table-info" scope="col">Price</th>
+                            <th scope="col">Order ID</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Date</th>
+                            <th scope="col"></th>
+                            <!-- <th class="table-info" scope="col">Price</th>
                             <th class="table-success" scope="col">Amount</th>
                             <th class="table-warning" scope="col">Date</th>
-                            <th class="table-danger" scope="col">Customer ID</th>
+                            <th class="table-danger" scope="col">Customer ID</th> -->
                         </tr>
                     </thead>
                     <tbody>
-                       
+                        <?php foreach ($orders as $order) : ?>
+                            <tr>
+                                <td><?= $order['id'] ?></td>
+                                <td><?= $order['amount'] ?></td>
+                                <td>---</td>
+                                <td>
+                                    <a href="/orders/show">
+                                        View Details
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
                     </tbody>
                 </table>
 
-            </div> -->
+            </div>
         </div>
 </main>
 <script src="js/order.js"></script>
