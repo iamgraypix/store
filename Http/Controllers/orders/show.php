@@ -12,9 +12,11 @@ ON order_details.item_id = items.id WHERE order_id = :id", [
 
 
 $amount = $db->query("SELECT amount FROM orders WHERE id = :id", ["id" => $_GET['id']])->find();
+$date = $db->query("SELECT created_at FROM orders WHERE id = :id", ["id" => $_GET['id']])->find();
 
 
 view("orders/show.view.php", [
     "order" => $order,
-    "amount" => $amount['amount']
+    "amount" => $amount['amount'],
+    "date" => $date['created_at']
 ]);

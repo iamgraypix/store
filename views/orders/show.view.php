@@ -19,7 +19,7 @@
             </div>
             <div class="row mb-2">
                 <div class="col">
-                    <h5>Date:</h5>
+                    <h5>Date: <?= $date ?></h5>
                 </div>
             </div>
             <div class="row">
