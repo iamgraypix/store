@@ -43,10 +43,10 @@
                                         <?= $item['name'] ?>
                                     </td>
                                     <td>
-                                        <?= $item['unit_price'] ?>
+                                        ₱ <?=number_format($item['unit_price'], 2) ?>
                                     </td>
                                     <td>
-                                        <?= $item['qty'] * $item['unit_price'] ?>
+                                        ₱ <?= number_format($item['qty'] * $item['unit_price'], 2) ?>
                                     </td>
                                 </tr>
                             <?php endforeach ?>
@@ -57,7 +57,7 @@
                                     <b>Total</b>
                                 </td>
                                 <td colspan="4" class="text-start">
-                                    <?= $amount ?>
+                                    ₱ <?= number_format($amount, 2) ?>
                                 </td>
                             </tr>
                         </tfoot>

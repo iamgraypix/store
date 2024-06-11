@@ -187,7 +187,7 @@
                         <?php foreach ($orders as $order) : ?>
                             <tr>
                                 <td><?= $order['id'] ?></td>
-                                <td><?= $order['amount'] ?></td>
+                                <td>₱ <?= number_format($order['amount'], 2) ?></td>
                                 <td>---</td>
                                 <td>
                                     <a href="/orders/show?id=<?=$order['id']?>">
