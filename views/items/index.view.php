@@ -40,7 +40,7 @@
                             <th scope="col">Retail Price</th>
                             <th class="table-info" scope="col">Revenue</th>
                             <th class="table-warning" scope="col">Revenue Percentage</th>
-                            <th class="table-danger" scope="col">Remarks</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -49,9 +49,13 @@
                                 <td><?= $item['name']  ?></td>
                                 <td><?= $item['listing']  ?></td>
                                 <td><?= $item['retail']  ?></td>
-                                <td class="table-info"></td>
-                                <td class="table-warning"></td>
-                                <td class="table-danger"></td>
+                                <td class="table-info">
+                                ₱ <?= number_format($item['retail'] - $item['listing'], 2)  ?>
+                                </td>
+                                <td class="table-warning">
+                                    <?= number_format(($item['retail'] - $item['listing']) / $item['listing'] * 100, 2) ?> %
+                                </td>
+                          
                             </tr>
 
                         <?php endforeach  ?>

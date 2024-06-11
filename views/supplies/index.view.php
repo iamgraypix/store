@@ -47,10 +47,10 @@
                             <td><?= $supply['created_at'] ?? '--' ?></td>
                             <td><?= $supply['name'] ?></td>
                             <td><?= $supply['qty'] ?></td>
-                            <td><?= $supply['retail'] ?></td>
-                            <td><?= $supply['total_retail'] ?></td>
-                            <td><?= $supply['listing'] ?></td>
-                            <td><?= $supply['total_listing'] ?></td>
+                            <td>₱ <?= number_format($supply['retail'], 2) ?></td>
+                            <td>₱ <?= number_format($supply['total_retail'], 2)  ?></td>
+                            <td>₱ <?= number_format($supply['listing'], 2)  ?></td>
+                            <td>₱ <?= number_format($supply['total_listing'], 2)  ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
