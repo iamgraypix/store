@@ -26,6 +26,11 @@ class Router
         $this->add($url, $controller, 'POST');
     }
 
+    public function put($url, $controller)
+    {
+        $this->add($url, $controller, 'PUT');
+    }
+
     public function route($url, $method)
     {
         foreach ($this->routes as $route) {

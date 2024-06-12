@@ -40,22 +40,24 @@
                             <th scope="col">Retail Price</th>
                             <th class="table-info" scope="col">Revenue</th>
                             <th class="table-warning" scope="col">Revenue Percentage</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($items as $item) :  ?>
                             <tr>
                                 <td><?= $item['name']  ?></td>
-                                <td><?= $item['listing']  ?></td>
-                                <td><?= $item['retail']  ?></td>
+                                <td>₱ <?= number_format($item['listing'], 2)  ?></td>
+                                <td>₱ <?= number_format($item['retail'], 2)  ?></td>
                                 <td class="table-info">
-                                ₱ <?= number_format($item['retail'] - $item['listing'], 2)  ?>
+                                    ₱ <?= number_format($item['retail'] - $item['listing'], 2)  ?>
                                 </td>
                                 <td class="table-warning">
                                     <?= number_format(($item['retail'] - $item['listing']) / $item['listing'] * 100, 2) ?> %
                                 </td>
-                          
+                                <td>
+                                    <a href="/items/edit?id=<?= $item['id'] ?>">Edit</a>
+                                </td>
                             </tr>
 
                         <?php endforeach  ?>
