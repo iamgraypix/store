@@ -21,9 +21,9 @@
                         <label for="inputState" class="form-label">Select Product</label>
                         <select id="inputState" class="form-select" name="item">
                             <option selected>Choose...</option>
-                            <?php foreach ($items as $item):  ?>
+                            <?php foreach ($items as $item) :  ?>
                                 <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-                            <?php endforeach   ?> 
+                            <?php endforeach   ?>
                         </select>
                         <p class="text-danger"><?= errors('item')  ?></p>
                     </div>
@@ -79,4 +79,5 @@
     </div>
 </main>
 
+<script src="../../js/add_product.js"></script>
 <?php require base_path('views/partials/footer.php')  ?>
