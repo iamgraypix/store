@@ -10,14 +10,14 @@
 
             <div class="row mt-4 justify-content-around">
 
-                <div class="col-12 col-md-4">
+                <!-- <div class="col-12 col-md-4">
                     <div class="input-group mb-2">
                         <input id="search-product-bar" type="text" class="form-control " placeholder="Item Name" aria-describedby="button-addon2">
                         <button id="search-product-btn" class="btn btn-dark" type="button" id="button-addon2">
                             <i class="bi bi-search"></i>
                         </button>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="col-6 col-md-3">
                     <a href="items/create" class="w-100 btn btn-outline-dark">
