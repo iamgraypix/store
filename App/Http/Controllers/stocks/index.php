@@ -1,11 +1,9 @@
 <?php
 
-use Core\App;
-use Core\Database;
+use App\Services\StockService;
 
-$db = App::resolve(Database::class);
 
-$stocks = $db->query("SELECT items.name, stocks.* FROM stocks JOIN items ON stocks.item_id = items.id")->get();
+$stocks = StockService::stocks();
 
 
 view('stocks/index.view.php', [

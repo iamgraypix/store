@@ -2,8 +2,10 @@
 
 use App\Interfaces\ItemsRepositoryInterface;
 use App\Interfaces\OrderRepositoryInterface;
+use App\Interfaces\StockRepositoryInterface;
 use App\Repository\ItemsRepository;
 use App\Repository\OrderRepository;
+use App\Repository\StockRepository;
 use Core\App;
 use Core\Container;
 use Core\Database;
@@ -21,6 +23,10 @@ $container->bind(ItemsRepositoryInterface::class, function(){
 
 $container->bind(OrderRepositoryInterface::class, function (){
     return new OrderRepository(App::resolve(Database::class));
+});
+
+$container->bind(StockRepositoryInterface::class, function (){
+    return new StockRepository(App::resolve(Database::class));
 });
 
 
