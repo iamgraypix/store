@@ -7,7 +7,7 @@ use Core\App;
 
 class StockService {
 
-    private $stockRepo;
+    private StockRepositoryInterface $stockRepo;
 
     public function __construct() {
         $this->stockRepo = App::resolve(StockRepositoryInterface::class);
@@ -15,6 +15,10 @@ class StockService {
 
     public static function stocks() {
         return (new static)->stockRepo->get();
+    }
+
+    public static function available_stocks() {
+        return (new static)->stockRepo->available();
     }
 
 }

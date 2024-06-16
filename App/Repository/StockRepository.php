@@ -21,4 +21,12 @@ class StockRepository implements StockRepositoryInterface
 
         return $this->db->query($query)->get();
     }
+
+    public function available()
+    {
+        $query = "SELECT items.id, items.name, items.retail, stocks.available  
+            FROM stocks JOIN items ON stocks.item_id = items.id WHERE stocks.available > 0";
+        
+        return $this->db->query($query)->get();
+    }
 }

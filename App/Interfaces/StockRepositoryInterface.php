@@ -6,4 +6,6 @@ interface StockRepositoryInterface {
 
     public function get();
 
+    public function available();
+
 }
