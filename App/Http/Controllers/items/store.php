@@ -3,6 +3,10 @@
 use Core\App;
 use Core\Database;
 use App\Http\Forms\RegisterItemForm;
+use App\Interfaces\ItemsRepositoryInterface;
+
+$db = App::resolve(Database::class);
+$repo = App::resolve(ItemsRepositoryInterface::class);
 
 $name = $_POST['name'];
 $listing_price = $_POST['listing-price'];
@@ -16,15 +20,12 @@ $form = RegisterItemForm::validation([
 ]);
 
 
-$db = App::resolve(Database::class);
-
-$db->query("INSERT INTO items (name, listing, retail) VALUES (:name, :listing, :retail)", [
+$new_item = $repo->create([
     'name' => $name,
     'listing' => $listing_price,
     'retail' => $retail_price
 ]);
 
-$db->query("INSERT INTO stocks (item_id) VALUES (:id)", ['id' => $db->lastId()]);
 
 
 // Redirect

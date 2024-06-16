@@ -1,13 +1,12 @@
 <?php
 
+use App\Interfaces\ItemsRepositoryInterface;
 use Core\App;
-use Core\Database;
 
-$db = App::resolve(Database::class);
 
-$item = $db->query("SELECT * FROM items WHERE id = :id", [
-    "id" => $_GET['id'] ?? null
-])->find();
+$item_repo = App::resolve(ItemsRepositoryInterface::class);
+
+$item = $item_repo->find($_GET['id']);
 
 
 view("items/edit.view.php", [

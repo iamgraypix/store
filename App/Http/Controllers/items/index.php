@@ -1,12 +1,11 @@
 <?php
 
+use App\Interfaces\ItemsRepositoryInterface;
 use Core\App;
-use Core\Database;
 
+$item_repo = App::resolve(ItemsRepositoryInterface::class);
 
-$db = App::resolve(Database::class);
-
-$items = $db->query("SELECT * FROM items")->get();
+$items = $item_repo->get();
 
 
 view('items/index.view.php', [
