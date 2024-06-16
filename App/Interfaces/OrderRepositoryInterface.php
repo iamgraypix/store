@@ -6,8 +6,10 @@ interface OrderRepositoryInterface {
 
     public function get();
 
-    public function find();
+    public function find(int $id);
 
-    public function create();
+    public function details($id);
+
+    public function create($amount, $items);
 
 }

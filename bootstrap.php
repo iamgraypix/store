@@ -1,7 +1,9 @@
 <?php
 
 use App\Interfaces\ItemsRepositoryInterface;
+use App\Interfaces\OrderRepositoryInterface;
 use App\Repository\ItemsRepository;
+use App\Repository\OrderRepository;
 use Core\App;
 use Core\Container;
 use Core\Database;
@@ -15,6 +17,10 @@ $container->bind(Database::class, function () {
 
 $container->bind(ItemsRepositoryInterface::class, function(){
     return new ItemsRepository(App::resolve(Database::class));
+});
+
+$container->bind(OrderRepositoryInterface::class, function (){
+    return new OrderRepository(App::resolve(Database::class));
 });
 
 

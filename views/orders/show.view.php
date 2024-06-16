@@ -34,7 +34,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach ($order as $item) : ?>
+                            <?php foreach ($items as $item) : ?>
                                 <tr>
                                     <td>
                                         <?= $item['qty'] ?>
