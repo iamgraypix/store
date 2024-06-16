@@ -35,7 +35,7 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($url === $route['url'] && $route['method'] === strtoupper($method)) {
-                return require base_path('Http/Controllers/' . $route['controller']);
+                return require base_path('App/Http/Controllers/' . $route['controller']);
             }
         }
         $this->notfound();

@@ -2,7 +2,7 @@
 
 use Core\App;
 use Core\Database;
-use Http\Forms\RegisterItemForm;
+use App\Http\Forms\RegisterItemForm;
 
 $db = App::resolve(Database::class);
 
