@@ -1,12 +1,8 @@
 <?php
 
-use Core\App;
-use Core\Database;
 use App\Http\Forms\RegisterItemForm;
-use App\Interfaces\ItemsRepositoryInterface;
+use App\Services\ItemService;
 
-$db = App::resolve(Database::class);
-$repo = App::resolve(ItemsRepositoryInterface::class);
 
 $name = $_POST['name'];
 $listing_price = $_POST['listing-price'];
@@ -19,12 +15,12 @@ $form = RegisterItemForm::validation([
     'retail-price' => $retail_price
 ]);
 
-
-$new_item = $repo->create([
+ItemService::create_item([
     'name' => $name,
     'listing' => $listing_price,
     'retail' => $retail_price
 ]);
+
 
 
 

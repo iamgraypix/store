@@ -1,12 +1,10 @@
 <?php
 
-use App\Interfaces\ItemsRepositoryInterface;
-use Core\App;
+
+use App\Services\ItemService;
 
 
-$item_repo = App::resolve(ItemsRepositoryInterface::class);
-
-$item = $item_repo->find($_GET['id']);
+$item = ItemService::find_item($_GET['id']);
 
 
 view("items/edit.view.php", [

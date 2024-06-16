@@ -1,11 +1,10 @@
 <?php
 
-use App\Interfaces\ItemsRepositoryInterface;
-use Core\App;
 
-$item_repo = App::resolve(ItemsRepositoryInterface::class);
+use App\Services\ItemService;
 
-$items = $item_repo->get();
+
+$items = ItemService::get_all_item();
 
 
 view('items/index.view.php', [
